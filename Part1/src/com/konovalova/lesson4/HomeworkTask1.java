@@ -21,6 +21,6 @@ public class HomeworkTask1 {
         System.out.println(m + " minutes " + sec + " seconds");
         System.out.println(h + " hours " + min + " minutes " + sec + " seconds");
         System.out.println(d + " days " +da + " hours " + min + " minutes " + sec + " seconds");
-        System.out.println(w + " weeks " + we + " days " +da + " hours " + min + " minutes " + sec + " seconds");
+        System.out.println(w + " weeks " + we + " days " +da + " hours " + min + " minutes " + sec + " seconds ");
     }
 }
