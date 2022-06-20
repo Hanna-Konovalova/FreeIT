@@ -9,7 +9,7 @@ public class HomeworkTask1 {
          * С) дней + часов + минут + секунд,
          * D) недель + дней + часов + минут + секунд.
         * */
-        int s = 4500;
+        int s = 604800;
         int sec = s % 60;
         int m = (s - sec) / 60;
         int min = m % 60;
@@ -18,9 +18,9 @@ public class HomeworkTask1 {
         int d = (h - da)/24;
         int we = d % 7;
         int w = (d - we)/7;
-        System.out.println(min + " minutes " + sec + " seconds");
+        System.out.println(m + " minutes " + sec + " seconds");
         System.out.println(h + " hours " + min + " minutes " + sec + " seconds");
-        System.out.println(d + " days " +h + " hours " + min + " minutes " + sec + " seconds");
-        System.out.println(w + " weeks " + d + " days " +h + " hours " + min + " minutes " + sec + " seconds");
+        System.out.println(d + " days " +da + " hours " + min + " minutes " + sec + " seconds");
+        System.out.println(w + " weeks " + we + " days " +da + " hours " + min + " minutes " + sec + " seconds");
     }
 }
