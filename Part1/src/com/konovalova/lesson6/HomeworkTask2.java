@@ -18,15 +18,15 @@ public class HomeworkTask2 {
         if (IsThreeDigit) {
 
             System.out.println("Number is 3 digital");
-            int lastNumeric = ourNumeric - ((ourNumeric/10)*10);
+            boolean lastNumeric7 = ourNumeric % 10 == 7;
 
-            if (lastNumeric == 7) {
+            if (lastNumeric7) {
                 System.out.println("Last number is 7");
                 System.out.println("Number is not even");
             } else {
                 System.out.println("Last number is not 7");
 
-                boolean resOfDivision = (lastNumeric % 2) == 0;
+                boolean resOfDivision = (ourNumeric % 2) == 0;
                  if (resOfDivision){
                      System.out.println("Number is even");
                  } else {

@@ -8,10 +8,11 @@ public class HomeworkTask6 {
         * */
         Scanner in = new Scanner(System.in);
         System.out.print("Input any integer: ");
-        int firstNum = in.nextInt();
+        int counterLimit = in.nextInt();
+        int firstNum = 3;
         int Sum = 0;
         int counter = 0;
-        while(counter!= 3) {
+        while(counter!= counterLimit) {
 
             boolean isDivided3 = firstNum%3 == 0;
             if(isDivided3) {

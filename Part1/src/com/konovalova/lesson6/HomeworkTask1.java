@@ -9,18 +9,18 @@ public class HomeworkTask1 {
          * */
 
         double averageMult = 0;
-        double Mult = 1;
-        int SymbolQuant = 0;
+        double mult = 1;
+        int symbolQuant = 0;
         int numb = (int)(Math.random() * 30);
 
         while(numb != 0) {
-            Mult *= numb;
-            SymbolQuant ++;
+            mult *= numb;
+            symbolQuant ++;
             numb = (int)(Math.random()*30);
         }
 
-       if(SymbolQuant != 0){
-            averageMult = Mult / SymbolQuant;
+       if(symbolQuant != 0){
+            averageMult = mult / symbolQuant;
         } else {
             averageMult = 0;
         }

@@ -11,25 +11,18 @@ public class HomeworkTask5 {
         Scanner in = new Scanner(System.in);
         System.out.print("Input any integer: ");
         int integ = in.nextInt();
-        int integClone = integ;
+        int checkInt = 2;
+        boolean isRemain = integ!=2;
 
-        boolean isRemain = true;
-
-        while (isRemain) {
-            --integClone;
-
-            if (integClone > 1) {
-                isRemain = integ % integClone !=0;
-               } else {
-               break;
-              }
-        }
-        if(isRemain){
-            System.out.println("Prime number");
-        } else {
-            System.out.println("Not prime number");
+        while (checkInt<=Math.sqrt(integ)) {
+            if(integ%checkInt==0){
+                isRemain = false;
+                break;
+            }
+            ++checkInt;
         }
 
+       System.out.println(isRemain?"Prime number":"Not prime number");
     }
 
 }

@@ -44,7 +44,7 @@ public class HomeworkTask9 {
             int compereResult = Math.abs(askSymbolLetter - ourSymbolLetter);
             if (compereResult == 0) {
                 System.out.println("Well done! Game over");
-            } else if (compereResult > 1 && compereResult <= 3) {
+            } else if (compereResult >= 1 && compereResult <= 3) {
                 System.out.println("Hot");
             } else if (compereResult > 3 && compereResult <= 6) {
                 System.out.println("Wormy");

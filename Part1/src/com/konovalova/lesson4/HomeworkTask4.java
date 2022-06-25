@@ -18,7 +18,7 @@ public class HomeworkTask4 {
         int bb = (aa - b*100);
         int c = bb/10;
         int cc = (bb - c*10);
-        boolean res = (a == b | b == c | c == cc | a == c | a == cc | b == cc);
+        boolean res = (a == b || b == c || c == cc || a == c || a == cc || b == cc);
 
         System.out.println("The numerics differs " + !res);
 
