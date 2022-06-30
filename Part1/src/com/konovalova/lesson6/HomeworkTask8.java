@@ -11,9 +11,8 @@ public class HomeworkTask8 {
         System.out.println(randNum);
 
         long resultFactoial = 1;
-        int i=1;
 
-        for(;i<=randNum;i++) {
+        for(int i=1;i<=randNum;i++) {
             resultFactoial *= i;
         }
 

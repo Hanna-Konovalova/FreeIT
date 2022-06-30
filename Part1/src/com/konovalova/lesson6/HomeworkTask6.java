@@ -11,18 +11,13 @@ public class HomeworkTask6 {
         int counterLimit = in.nextInt();
         int firstNum = 3;
         int Sum = 0;
-        int counter = 0;
-        while(counter!= counterLimit) {
-
+        while(firstNum <= counterLimit) {
             boolean isDivided3 = firstNum%3 == 0;
             if(isDivided3) {
                 Sum += firstNum;
-                ++counter;
             }
-            firstNum++;
-
+            firstNum+=3;
         }
-
         System.out.println(Sum);
     }
 }
