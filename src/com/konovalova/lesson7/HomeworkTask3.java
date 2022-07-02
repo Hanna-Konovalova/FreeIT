@@ -10,17 +10,23 @@ public class HomeworkTask3 {
          * */
 
         Random rand = new Random();
-        int[] someNumbers = new int[10];
-        int i = 0;
+        int[] someNumbers = new int[11];
+        int tempNumber;
 
         System.out.println("Our array: ");
-        for(;i<someNumbers.length;i++){
+        for(int i = 0;i<someNumbers.length;i++){
             someNumbers[i] = rand.nextInt(5)+7;
             System.out.print(someNumbers[i] + "  ");
         }
 
+        for(int i = 0;i<someNumbers.length/2;i++){
+            tempNumber = someNumbers[i];
+            someNumbers[i] = someNumbers[someNumbers.length -i-1];
+            someNumbers[someNumbers.length -i-1] = tempNumber;
+        }
+
         System.out.println("\nRevers array: ");
-        for(i=someNumbers.length - 1;i>=0;i--){
+        for(int i = 0;i<someNumbers.length;i++){
             System.out.print(someNumbers[i] + "  ");
         }
     }

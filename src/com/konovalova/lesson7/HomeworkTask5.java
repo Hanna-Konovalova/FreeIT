@@ -7,26 +7,38 @@ public class HomeworkTask5 {
          * */
         int butterflyArray[][] = new int[5][5];
 
-        for (int i = 0; i < butterflyArray.length; i++) {
-
+        for (int i = 0; i < butterflyArray.length/2+1; i++) {
             for (int j = 0; j < butterflyArray[i].length; j++) {
-                //butterflyArray[i][j] = 1;
-                butterflyArray[i][j] = validNumber(i, j);
-                if (butterflyArray[i][j]==0) {
-                    System.out.print("   ");
-                } else {
-                    System.out.print(butterflyArray[i][j] + "  ");
+                if(j<=i||j>=butterflyArray[i].length-i-1){
+                butterflyArray[i][j] = 1;}
+                else {
+                    butterflyArray[i][j] = 0;
                 }
             }
+        }
+
+        for (int i = butterflyArray.length/2+1; i < butterflyArray.length; i++) {
+            for (int j = 0; j < butterflyArray[i].length; j++) {
+                if(j>=i||j<butterflyArray[i].length-i){
+                    butterflyArray[i][j] = 1;}
+                else {
+                    butterflyArray[i][j] = 0;
+                }
+            }
+        }
+
+        for(int i = 0; i < butterflyArray.length; i++){
+           for(int j = 0; j < butterflyArray[i].length; j++){
+               if(butterflyArray[i][j]==1){
+                   System.out.print(butterflyArray[i][j]+"  ");
+               } else {
+                   System.out.print("   ");
+               }
+           }
             System.out.println();
         }
     }
-
-    private static int validNumber(int i, int j) {
-        int ourValidNumber;
-        if ( ((i==0|i==4)&(j==1|j==2|j==3)) | ((i==1|i==3)&j==2) ) {
-            ourValidNumber = 0;
-        } else ourValidNumber = 1;
-        return ourValidNumber;
-    }
 }
+
+
+

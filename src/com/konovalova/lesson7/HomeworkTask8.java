@@ -70,23 +70,21 @@ public class HomeworkTask8 {
         return noWinResult;
     }
     private static boolean isWin(int playerMark, int[][] playGround){
-        boolean winResult = false;
 
-        for (int x =0;x<3;x++){
+         for (int x =0;x<3;x++){
             if((playGround[x][0]==playerMark & playGround[x][1]==playerMark & playGround[x][2]==playerMark) ||
                (playGround[0][x]==playerMark & playGround[1][x]==playerMark & playGround[2][x]==playerMark))
             {
-                winResult = true;
+                return true;
             }
          }
 
         if((playGround[0][0]==playerMark & playGround[1][1]==playerMark & playGround[2][2]==playerMark) ||
                 (playGround[0][2]==playerMark & playGround[1][1]==playerMark & playGround[2][0]==playerMark))
         {
-            winResult = true;
+            return true;
         }
-
-        return winResult;
+        return false;
     }
     private static void printPlayGroun(int[][] playGround){
         for (int x = 0; x < 3; x++) {
