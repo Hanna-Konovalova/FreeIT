@@ -13,24 +13,47 @@ public class HomeworkTask7 {
         System.out.println("Print Your text: ");
         Scanner in = new Scanner(System.in);
         String ourText = in.nextLine();
+        boolean isUniq;
 
-        String[] separatedSentence = ourText.split("[.]");
+        String[] separatedSentence = ourText.split("[.!?\n]");
         for (String sentence : separatedSentence) {
 
+            System.out.println("Sentence: " + sentence);
             String[] separatedWords = sentence.split(" ");
+            String[] uniqWords = new String[separatedWords.length];
+            String uniW = "";
+            int counterUniq = 0;
 
-            HashMap<String, Integer> separatedWordsCounter = new HashMap<>();
-            for (String word : separatedWords) {
-
-                if (word != " ") {
-                    if (!separatedWordsCounter.containsKey(word)) {
-                        separatedWordsCounter.put(word, 0);
+            //1. Заполнение массива будущих уникальных значений пустыми данными
+            for(int i=0;i<uniqWords.length;i++){
+                uniqWords[i] = "";
+            }
+            //2. Выборка уникальных значений основного массива и заполнение на его основании массива уникальных значений
+            for(int i=0;i<separatedWords.length;i++) {
+                uniW = separatedWords[i];
+                isUniq = true;
+                for (int j = 0; j < uniqWords.length; j++) {
+                    if (uniqWords[j].equals(uniW)) {
+                        isUniq = false;
+                        continue;
                     }
-                    separatedWordsCounter.put(word, separatedWordsCounter.get(word) + 1);
+                }
+                if (isUniq){
+                    uniqWords[counterUniq] = uniW;
+                    counterUniq ++;
                 }
             }
-            for (String word : separatedWordsCounter.keySet()) {
-                System.out.println(word + " - meets in sentence - " + separatedWordsCounter.get(word) + " times");
+            //3. Подсчитываем и выводим количество уникальных элементов в исходном массиве
+            for(int i=0;i<uniqWords.length;i++){
+                counterUniq = 0;
+                if(!uniqWords[i].equals("")) {
+                    for (int j = 0; j < separatedWords.length; j++) {
+                        if (uniqWords[i].equals(separatedWords[j])) {
+                            counterUniq++;
+                        }
+                    }
+                    System.out.println("Word " + uniqWords[i] + " meets in sentence " + counterUniq + " times");
+                }
             }
         }
     }
