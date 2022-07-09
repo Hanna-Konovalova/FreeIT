@@ -22,52 +22,46 @@ public class HomeworkTask8 {
 
         while (true) {
 
-            //ход игрока
-            userAct(playGround,in);
-            //проверка победы
-            if(isWin(2,playGround)){
-                System.out.println("You win");
-                printPlayGroun(playGround);
-                break;
-            } else {
-                //печать поля
-                printPlayGroun(playGround);
-            }
-            //проверка ничья
-            if (noWins(playGround)){
-                System.out.println("No wins");
+            if(actingMethod(2,playGround,in,rand)){
                 break;
             }
-            //ход компьютера
-            System.out.println("Computer act:");
-            compAct(playGround,rand);
-            //проверка победы
-            if(isWin(3,playGround)){
-                System.out.println("Computer wins");
-                printPlayGroun(playGround);
-                break;
-            } else {
-                //печать поля
-                printPlayGroun(playGround);
-            }
-            //проверка ничья
-            if (noWins(playGround)){
-                System.out.println("No wins");
+            if(actingMethod(3,playGround,in,rand)){
                 break;
             }
         }
     }
+    private static boolean actingMethod(int playerMark,int[][] playGround,Scanner in,Random rand){
+        //ход игрока/компьтера
+        if(playerMark==2) {
+            userAct(playGround,in);
+        }else{
+            compAct(playGround,rand);
+        }
+        //проверка победы
+        if(isWin(playerMark,playGround)){
+            System.out.println(playerMark==2?"You win":"Computer wins");
+            printPlayGroun(playGround);
+            return true;
+        } else {
+            //печать поля
+            printPlayGroun(playGround);
+        }
+        //проверка ничья
+        if (noWins(playGround)){
+            System.out.println("No wins");
+            return true;
+        }
+        return false;
+    }
     private static boolean noWins(int[][] playGround){
-        boolean noWinResult = true;
         for(int x = 0;x<3;x++){
             for(int y = 0;y<3;y++){
                 if(playGround[x][y]==0){
-                    noWinResult = false;
-                    break;
+                    return false;
                 }
             }
         }
-        return noWinResult;
+        return true;
     }
     private static boolean isWin(int playerMark, int[][] playGround){
 
@@ -110,6 +104,7 @@ public class HomeworkTask8 {
         playGround[y][x] = 2;
     }
     private static void compAct(int[][] playGround,Random rand) {
+        System.out.println("Computer act:");
         int x, y;
         do {
             x = rand.nextInt(3);

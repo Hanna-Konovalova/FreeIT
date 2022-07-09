@@ -1,10 +1,7 @@
 package com.konovalova.lesson7;
-
 import java.util.HashMap;
 import java.util.Scanner;
-
 public class HomeworkTask7 {
-
     public static void main(String[] args) {
         /* Написать программу, которая будет хранить текст
          * по предложениям и для каждого предложения составить частотный словарь
@@ -24,18 +21,16 @@ public class HomeworkTask7 {
             String uniW = "";
             int counterUniq = 0;
 
-            //1. Заполнение массива будущих уникальных значений пустыми данными
-            for(int i=0;i<uniqWords.length;i++){
-                uniqWords[i] = "";
-            }
-            //2. Выборка уникальных значений основного массива и заполнение на его основании массива уникальных значений
+            //1. Выборка уникальных значений основного массива и заполнение на его основании массива уникальных значений
             for(int i=0;i<separatedWords.length;i++) {
                 uniW = separatedWords[i];
                 isUniq = true;
                 for (int j = 0; j < uniqWords.length; j++) {
-                    if (uniqWords[j].equals(uniW)) {
-                        isUniq = false;
-                        continue;
+                    if(uniqWords[j]!=null) {
+                        if (uniqWords[j].equals(uniW)) {
+                            isUniq = false;
+                            continue;
+                        }
                     }
                 }
                 if (isUniq){
@@ -43,10 +38,10 @@ public class HomeworkTask7 {
                     counterUniq ++;
                 }
             }
-            //3. Подсчитываем и выводим количество уникальных элементов в исходном массиве
+            //2. Подсчитываем и выводим количество уникальных элементов в исходном массиве
             for(int i=0;i<uniqWords.length;i++){
                 counterUniq = 0;
-                if(!uniqWords[i].equals("")) {
+                if(uniqWords[i]!=null) {
                     for (int j = 0; j < separatedWords.length; j++) {
                         if (uniqWords[i].equals(separatedWords[j])) {
                             counterUniq++;
