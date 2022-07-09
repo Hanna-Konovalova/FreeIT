@@ -24,10 +24,5 @@ public class TimeDescriptionRunner {
 
         timeOne.printCompResInSeconds(timeOne.getSeconds(),newTimeInSeconds);
         timeOne.printCompResFullTime(timeOne.fullTimeFromSeconds(timeOne.getSeconds()),timeTwo);
-
-
     }
-
-
-
 }

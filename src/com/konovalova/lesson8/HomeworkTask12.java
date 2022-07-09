@@ -30,5 +30,6 @@ public class HomeworkTask12 {
             bufString = bufString.append(partString);
         }
         System.out.println("Time for StringBuffer: " + (System.currentTimeMillis() - timeBuf));
+
     }
 }

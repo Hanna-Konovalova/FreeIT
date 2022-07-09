@@ -29,6 +29,7 @@ public class HomeworkTask11 {
             lastLetters = lastLetters + word.charAt(word.length()-1);
         }
         System.out.println("Last letters are: " + lastLetters.toString());
+
     }
     }
 

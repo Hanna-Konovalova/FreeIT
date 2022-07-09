@@ -22,7 +22,6 @@ public class HomeworkTask9 {
             stringBuilder.replace(threePointsIndex, (threePointsIndex+3), "?");
         }
         ourString = stringBuilder.toString();
-
         System.out.println("Quantaty of punctuation marks: " + (ourString.length() - ourString.replaceAll("[\\p{P}\\p{S}]", "").length()));
     }
 }

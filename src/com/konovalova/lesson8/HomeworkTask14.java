@@ -28,6 +28,7 @@ public class HomeworkTask14 {
         System.out.println("Found tags <p> are at index range: ");
         while(matcherString.find()) {
                 System.out.println(matcherString.start() + " " + (matcherString.end()-1));
+
         }
     }
 }

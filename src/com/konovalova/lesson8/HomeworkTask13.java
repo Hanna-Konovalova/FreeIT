@@ -19,6 +19,7 @@ public class HomeworkTask13 {
         Matcher matcherString = regexp.matcher(ourString);
         while(matcherString.find()){
             System.out.println(matcherString.group());
+
         }
     }
 }

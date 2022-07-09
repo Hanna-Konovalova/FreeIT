@@ -78,5 +78,4 @@ public class TimeDescription {
         String ourCS = compS==0?" = ":compS==1?" > ": " < ";
         System.out.println("Full time compare\nTime1" + ourCS + "Time2");
     }
-
 }

@@ -9,6 +9,7 @@ public class Bankomat {
     private int count50;
     private int count100;
 
+
     public Bankomat(int nom20,int nom50,int nom100){
         this.nom20 = nom20;
         this.nom50 = nom50;

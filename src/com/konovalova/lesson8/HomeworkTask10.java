@@ -16,8 +16,6 @@ public class HomeworkTask10 {
         ourString = ourString.replaceAll("[\\p{P}\\p{S}]", " ");
         String[] separateWords = ourString.split(" +");
         System.out.println("Quantaty of words in sentance: " + separateWords.length);
-
     }
-
     }
 

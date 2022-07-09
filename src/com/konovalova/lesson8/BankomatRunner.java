@@ -18,6 +18,7 @@ public class BankomatRunner {
         ourBank.putMoney(5,0,5);
         //проводим списание необходимой суммы
         System.out.println("success: " + ourBank.withdrawMoney(1330));
+
     }
 
 
