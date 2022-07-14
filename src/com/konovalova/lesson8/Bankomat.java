@@ -9,7 +9,6 @@ public class Bankomat {
     private int count50;
     private int count100;
 
-
     public Bankomat(int nom20,int nom50,int nom100){
         this.nom20 = nom20;
         this.nom50 = nom50;
@@ -39,26 +38,26 @@ public class Bankomat {
             return false;
         }
     }
-    private boolean toMakeWithdrou(int Amount){
+    private boolean toMakeWithdrou(int amount){
 
-        while(Amount%100!=0){
+        while(amount%100!=0){
             if(nom20>count20){
-                Amount-=20;
+                amount-=20;
                 count20++;
             }else{
                 System.out.println("No banknotes to write off the required amount");
                 return false;
             }
         }
-        while(Amount!=0){
+        while(amount!=0){
             if(nom100>count100){
-                Amount-=100;
+                amount-=100;
                 count100++;
             } else if (nom50>count50) {
-                Amount-=50;
+                amount-=50;
                 count50++;
             } else if (nom20>count20){
-                Amount-=20;
+                amount-=20;
                 count20++;
             }
         }

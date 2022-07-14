@@ -12,17 +12,14 @@ package com.konovalova.lesson8;
 public class TimeDescriptionRunner {
     public static void main(String[] args) {
 
-        TimeDescription timeOne = new TimeDescription(24560);
+        TimeDescription timeOne = new TimeDescription(786567547);
         TimeDescription timeTwo = new TimeDescription(5,12,35);
 
         System.out.println("Time1: " + timeOne.toString());
         System.out.println("Time2: " + timeTwo.toString());
 
-        System.out.println("Time1 in full time format: " + timeOne.fullTimeFromSeconds(timeOne.getSeconds()).toString());
-        int newTimeInSeconds = timeTwo.secondInTime(timeTwo.getHours(),timeTwo.getMinutes(),timeTwo.getSeconds());
-        System.out.println("Time2 in seconds: " + newTimeInSeconds);
+        System.out.println("Time2 in seconds: " + timeTwo.timeInSeconds().toString());
+        System.out.println(timeOne.compareTime(timeOne,timeTwo.timeInSeconds()));
 
-        timeOne.printCompResInSeconds(timeOne.getSeconds(),newTimeInSeconds);
-        timeOne.printCompResFullTime(timeOne.fullTimeFromSeconds(timeOne.getSeconds()),timeTwo);
-    }
+       }
 }

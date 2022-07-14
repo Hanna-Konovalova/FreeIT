@@ -15,16 +15,7 @@ public class HomeworkTask11 {
         String lastLetters = "";
         StringBuilder stringBuilder = new StringBuilder(ourString);
 
-        while(true){
-            threePointsIndex = stringBuilder.indexOf("...");
-            if(threePointsIndex<0){
-                break;
-            }
-            stringBuilder.replace(threePointsIndex, (threePointsIndex+3), "?");
-        }
-        ourString = stringBuilder.toString();
-        ourString = ourString.replaceAll("[\\p{P}\\p{S}]", "");
-        String[] separateWords = ourString.split(" +");
+        String[] separateWords = ourString.split("[.:;!?,\\s]+");
         for (String word : separateWords) {
             lastLetters = lastLetters + word.charAt(word.length()-1);
         }

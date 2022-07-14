@@ -12,10 +12,12 @@ public class HomeworkTask9 {
         Scanner in = new Scanner(System.in);
         String ourString = in.nextLine();
         int threePointsIndex;
+        String threePoints = "...";
         StringBuilder stringBuilder = new StringBuilder(ourString);
 
+
         while(true){
-            threePointsIndex = stringBuilder.indexOf("...");
+            threePointsIndex = stringBuilder.indexOf(threePoints);
             if(threePointsIndex<0){
                 break;
             }

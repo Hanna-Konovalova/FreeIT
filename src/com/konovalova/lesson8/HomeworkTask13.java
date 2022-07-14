@@ -15,7 +15,7 @@ public class HomeworkTask13 {
         Scanner in = new Scanner(System.in);
         String ourString = in.nextLine();
 
-        Pattern regexp =Pattern.compile("[A-F0-9]+");
+        Pattern regexp =Pattern.compile("[A-Fa-f0-9]+");
         Matcher matcherString = regexp.matcher(ourString);
         while(matcherString.find()){
             System.out.println(matcherString.group());

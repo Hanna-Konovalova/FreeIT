@@ -17,11 +17,11 @@ public class HomeworkTask14 {
                 "Ac ornare quisque, quam urna? Rutrum aenean taciti pharetra dictum arcu arcu aliquet " +
                 "aliquet posuere. Euismod mus pulvinar sociosqu maecenas nunc nunc.<p> <p>Malesuada erat enim " +
                  "sed tellus. Senectus rhoncus fringilla volutpat iaculis elementum urna molestie fames. " +
-                "Cursus auctor tempus tempus morbi facilisi commodo condimentum lorem aliquet. Quisque conubia, " +
+                "Cursus auctor tempus tempus morbi <p style=”moonlight”> facilisi commodo condimentum lorem aliquet. Quisque conubia, " +
                 " lacus habitasse egestas. Lobortis ipsum sapien phasellus sagittis suspendisse. Blandit commodo " +
                 " amet cubilia augue iaculis sit vestibulum imperdiet ligula posuere varius. Arcu hac risus penatibus.<p id=”p1”>";
 
-        ourString = ourString.replaceAll("<p id=.{4,5}>", "<p>");
+        ourString = ourString.replaceAll("<p.*?>", "<p>");
 
         Pattern regexp =Pattern.compile("<p>");
         Matcher matcherString = regexp.matcher(ourString);

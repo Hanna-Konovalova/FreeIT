@@ -8,25 +8,25 @@ public class HomeworkTask12 {
         append, а также аналогино для StringBuffer. Сравните скорость их выполнения.
          **/
         String simpleString = "";
-        StringBuilder bldString = new StringBuilder(1000);
-        StringBuffer bufString = new StringBuffer(1000);
+        StringBuilder bldString = new StringBuilder();
+        StringBuffer bufString = new StringBuffer();
         String partString = "abcde";
 
         //1
         long time = System.currentTimeMillis();
-        while(simpleString.length()<1001){
+       for(int i=0;i<100000;i++){
             simpleString = simpleString + partString;
         }
         System.out.println("Time for simple string concatenation: " + (System.currentTimeMillis() - time));
         //2
         long timeBld = System.currentTimeMillis();
-        while(bldString.length()<1001){
+        for(int i=0;i<100000;i++){
             bldString = bldString.append(partString);
         }
         System.out.println("Time for StringBuilder: " + (System.currentTimeMillis() - timeBld));
         //3
         long timeBuf = System.currentTimeMillis();
-        while(bufString.length()<1001){
+        for(int i=0;i<100000;i++){
             bufString = bufString.append(partString);
         }
         System.out.println("Time for StringBuffer: " + (System.currentTimeMillis() - timeBuf));
