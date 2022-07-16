@@ -10,18 +10,20 @@ public class NotePadRunner {
         // который выводит частотный словарь для определенной записи (запись можно определить по номеру/индексу)
 
         Notepad ourNotepad = new Notepad();
-        ourNotepad.addRecord();
-        ourNotepad.printNotepad();
         Scanner in = new Scanner(System.in);
+        System.out.println("How many notes would you like to add?");
+        ourNotepad.addRecord(in.nextInt());
+        ourNotepad.printNotepad();
+        Scanner ini = new Scanner(System.in);
         System.out.println("Put index of note for frequency dictionary: ");
-        int idNote = in.nextInt();
+        int idNote = ini.nextInt();
         ourNotepad.printFreqDictionary(idNote-1);
 
         //Excel. Class7.Написать в классе записной книжки метод, который выводит в консоль название всех дел/сами дела,
         //в которых есть переданное в этот метод в качестве аргемента слово
-        Scanner ini = new Scanner(System.in);
+        Scanner inii = new Scanner(System.in);
         System.out.println("Put word for search note: ");
-        String searchWord = ini.nextLine();
+        String searchWord = inii.nextLine();
         ourNotepad.printNotesForWords(searchWord);
 
 

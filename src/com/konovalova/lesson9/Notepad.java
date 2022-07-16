@@ -1,5 +1,6 @@
 package com.konovalova.lesson9;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 import java.util.Date;
@@ -7,11 +8,12 @@ import java.util.HashMap;
 
 public class Notepad {
 
-    public Record[] notepad = new Record[3];
+    public Record[] notepad;
     public Notepad(){}
-    public void addRecord(){
+    public void addRecord(int id){
+        notepad = new Record[id];
         Scanner in = new Scanner(System.in);
-        for(int id=0;id<notepad.length;id++){
+        for(id=0;id<notepad.length;id++){
          System.out.println("Print Your text for note" + (id+1) + ":");
          String ourNote = in.nextLine();
          Record rec = new Record(new Date(),ourNote);
@@ -38,18 +40,13 @@ public class Notepad {
             System.out.println(word + " - meets in sentence - " + separatedWordsCounter.get(word) + " times");
         }
     }
-    public void printNotesForWords(String searchWord){
+    public void printNotesForWords(String searchWord) {
 
-        for(int id=0;id<notepad.length;id++) {
+        for (int id = 0; id < notepad.length; id++) {
 
-        String[] separatedWords = notepad[id].textRecord.split("[-.,:;!?  +]");
-        for (String word : separatedWords){
-            if (word.equals(searchWord)) {
+            if (notepad[id].textRecord.contains(searchWord)) {
                 System.out.println("Search word '" + searchWord + "' found in note '" + notepad[id].textRecord + "'.");
-                break;
             }
         }
     }
-    }
-
 }
