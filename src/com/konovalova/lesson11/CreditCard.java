@@ -2,10 +2,10 @@ package com.konovalova.lesson11;
 
 public class CreditCard extends BankCards{
 
-    int overdraftLimit;
-    int terMonthLimit;
+    private int overdraftLimit;
+    private int terMonthLimit;
 
-    CreditCard(boolean isChip,int overdraftLimit,int terMonthLimit) {
+    public CreditCard(boolean isChip,int overdraftLimit,int terMonthLimit) {
         super(isChip);
         this.overdraftLimit = overdraftLimit;
         this.terMonthLimit = terMonthLimit;

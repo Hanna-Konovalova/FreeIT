@@ -4,7 +4,15 @@ import java.util.Date;
 
 public class MasterCard extends DebtCard{
 
-    MasterCard(boolean isChip, int amountLimit) {
+    public MasterCard(boolean isChip, int amountLimit) {
         super(isChip,amountLimit);
+    }
+
+    @Override
+    public String toString() {
+        return "MasterCard{" +
+                "isChip='" + super.getIsChip() + '\'' +
+                ", amountLimit='" + super.getAmountLimit() +
+                '}';
     }
 }

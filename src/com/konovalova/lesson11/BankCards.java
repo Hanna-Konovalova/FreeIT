@@ -1,10 +1,13 @@
 package com.konovalova.lesson11;
 
 public class BankCards {
-    boolean isChip;
+    private boolean isChip;
 
-    BankCards(boolean isChip){
+   public BankCards(boolean isChip){
         this.isChip = isChip;
         };
 
+    public boolean getIsChip() {
+        return isChip;
+    }
 }
