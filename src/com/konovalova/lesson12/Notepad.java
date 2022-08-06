@@ -5,38 +5,26 @@ import java.util.*;
 
 public class Notepad {
 
-    public Record[] notepad;
-    Date bufDate;
-
-    public Notepad() {
+    private List<Record> records = new ArrayList<>();
+    public Notepad() {}
+    public void addRecord(String ourNote) {
+        Record rec = new Record(new Date(), ourNote);
+        records.add(rec);
     }
-
-    public void addRecord(int id) {
-        notepad = new Record[id];
-        Scanner in = new Scanner(System.in);
-        for (id = 0; id < notepad.length; id++) {
-            System.out.println("Print Your text for note" + (id + 1) + ":");
-            String ourNote = in.nextLine();
-            Record rec = new Record(new Date(), ourNote);
-            notepad[id] = rec;
-        }
-    }
-
     public void printNotepad() {
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-        for (int id = 0; id < notepad.length; id++) {
-            System.out.println(id + 1 + ", " + formatter.format(notepad[id].noteDate) + ", " + notepad[id].textRecord);
+        for (int id = 0; id < records.size(); id++) {
+            System.out.println(id + 1 + ", " + formatter.format(records.get(id).getNoteDate()) + ", " + records.get(id).getTextRecord());
         }
     }
-
     public void sortRecords() {
-
-        for (int out = notepad.length - 1; out >= 1; out--) {
+        Date bufDate;
+        for (int out = records.size() - 1; out >= 1; out--) {
             for (int in = 0; in < out; in++) {
-                if (notepad[in].noteDate.compareTo(notepad[in + 1].noteDate) > 0) {
-                    bufDate = notepad[in].noteDate;
-                    notepad[in].noteDate = notepad[in + 1].noteDate;
-                    notepad[in + 1].noteDate = bufDate;
+                if (records.get(in).getNoteDate().compareTo(records.get(in+1).getNoteDate()) > 0) {
+                    bufDate = records.get(in).getNoteDate();
+                    records.get(in).setNoteDate(records.get(in+1).getNoteDate());
+                    records.get(in+1).setNoteDate(bufDate);
                 }
             }
         }

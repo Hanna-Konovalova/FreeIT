@@ -10,14 +10,16 @@ public class NotePadRunner {
         //Excel. Class6. Отсортировать записи, хранящиеся в записной книжке по
         // времени их добавления и вывести в этом порядке в консоль
 
-        Notepad ourNotepad = new Notepad();
         Scanner in = new Scanner(System.in);
-        System.out.println("How many notes would you like to add?");
-        ourNotepad.addRecord(in.nextInt());
+        Notepad ourNotepad = new Notepad();
+        System.out.println("Print Your text for notes:");
+        ourNotepad.addRecord(in.nextLine());
+        ourNotepad.addRecord(in.nextLine());
+        ourNotepad.addRecord(in.nextLine());
+        ourNotepad.addRecord(in.nextLine());
         ourNotepad.printNotepad();
         ourNotepad.sortRecords();
         ourNotepad.printNotepad();
-
-
+        in.close();
     }
 }
