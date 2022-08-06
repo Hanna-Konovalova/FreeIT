@@ -17,7 +17,4 @@ public class Kitchen extends HouseholdАppliances{
     public int getVolumeCup() {
         return volumeCup;
     }
-    public String getTradeMark(){return super.getTradeMark();}
-
-    public int getVoltage(){return super.getVoltage();}
 }
