@@ -3,15 +3,8 @@ package com.konovalova.lesson14;
 import java.util.Date;
 
 public class Record {
-
      private String textRecord;
      private Date noteDate;
-
-     public Record(Date noteDate, String textRecord, Enum typeNote){
-          this.noteDate = noteDate;
-          this.textRecord = textRecord;
-               }
-
      public Record(){};
      public String getTextRecord() {
           return textRecord;
@@ -25,5 +18,4 @@ public class Record {
      public void setTextRecord(String textRecord) {
           this.textRecord = textRecord;
      }
-
 }
