@@ -8,5 +8,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface IsAvailableNotepad {
-    boolean publicNotepad() default false;
+    boolean publicNotepad() default true;
 }
