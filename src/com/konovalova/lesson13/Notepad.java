@@ -6,110 +6,114 @@ import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatterBuilder;
 import java.util.*;
 
-public class Notepad {
+public class Notepad implements Cloneable{
 
-    public Record[] notepad;
-    Date bufDate;
-    Random rand = new Random();
-    Record ourRecord;
-    boolean noteFound;
-    Date currentDate;
-    Date currentDate1;
-    Date firstDateTime;
-    Date secondDateTime;
-    String currentDateStr;
-    Date ourNDate;
-    SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+    private List<Record> records = new ArrayList<>();
+
+    //
     public Notepad() {
     }
+    public void addRecord(String ourNote) {
 
-    public void addRecord(int id) {
-        notepad = new Record[id];
-        Scanner in = new Scanner(System.in);
-        for (id = 0; id < notepad.length; id++) {
-            System.out.println("Print Your text for note" + (id + 1) + ":");
-            String ourNote = in.nextLine();
-            int randNum = rand.nextInt(4);// от 0 до 3
-            Record rec = new Record();
-            currentDate = getDateFormat(new Date());
-            rec.setNoteDate(currentDate);
-            rec.setTextRecord(ourNote);
-            rec.setTypeNote(TypeNote.getTypeNoteByIndex(randNum));
-            notepad[id] = rec;
-        }
+        Date currentDate = getDateFormat(new Date());
+        Random rand = new Random();
+
+        int randNum = rand.nextInt(4);// от 0 до 3
+        Record rec = new Record();
+        rec.setNoteDate(currentDate);
+        rec.setTextRecord(ourNote);
+        rec.setTypeNote(TypeNote.getTypeNoteByIndex(randNum));
+        records.add(rec);
     }
     public void printNotepad() {
-        for (int id = 0; id < notepad.length; id++) {
-            System.out.println(id + 1 + ", " + formatter.format(notepad[id].getNoteDate()) + ", " + notepad[id].getTextRecord() + ", " + notepad[id].getTypeNote());
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        for (int id = 0; id < records.size(); id++) {
+            System.out.println(id + 1 + ", " + formatter.format(records.get(id).getNoteDate()) + ", " + records.get(id).getTextRecord() + ", " + records.get(id).getTypeNote());
         }
     }
-    public Record getNoteByNoteType(int indexNoteType,int id){
-       if(notepad[id].getTypeNote().equals(TypeNote.getTypeNoteByIndex(indexNoteType))){
-          return notepad[id];}
+    private Record getNoteByNoteType(int indexNoteType,int id){
+       if(records.get(id).getTypeNote().equals(TypeNote.getTypeNoteByIndex(indexNoteType))){
+          return records.get(id);}
        else {return null;}
     }
-    public void recordsByType(int indexNoteType){
-        noteFound = false;
-        for (int id = 0; id < notepad.length; id++) {
+    public List getRecordsByType(int indexNoteType){
+
+        boolean noteFound = false;
+        Record ourRecord;
+        List<Record> returnRecords = new ArrayList<>();
+
+        for (int id = 0; id < records.size(); id++) {
            ourRecord = getNoteByNoteType(indexNoteType,id);
            if(!(ourRecord ==null)){
                noteFound = true;
-               System.out.println(formatter.format(ourRecord.getNoteDate()) + ",\n" +
-                       ourRecord.getTextRecord() + ",\n" +
-                       ourRecord.getTypeNote());
+               returnRecords.add(ourRecord);
            }
         }
         if(!noteFound) {
-            System.out.println("No notes found");
+            System.out.println("No notes found by type");
         }
+        return returnRecords;
     }
-    public Record getNoteByWord(String ourWord,int id){
-        if(notepad[id].getTextRecord().contains(ourWord)){
-            return notepad[id];}
+    private Record getNoteByWord(String ourWord,int id){
+        if(records.get(id).getTextRecord().contains(ourWord)){
+            return records.get(id);}
         else {return null;}
     }
-    public void recordsByWord(String ourWord){
-        noteFound = false;
-        for (int id = 0; id < notepad.length; id++) {
+    public List getRecordsByWord(String ourWord){
+
+        List<Record> returnRecords = new ArrayList<>();
+        boolean noteFound = false;
+        Record ourRecord;
+
+        for (int id = 0; id < records.size(); id++) {
             ourRecord = getNoteByWord(ourWord,id);
             if(!(ourRecord ==null)){
                 noteFound = true;
-                System.out.println(formatter.format(ourRecord.getNoteDate()) + ",\n" +
-                        ourRecord.getTextRecord() + ",\n" +
-                        ourRecord.getTypeNote());
+                returnRecords.add(ourRecord);
             }
         }
         if(!noteFound) {
-            System.out.println("No notes found");
+            System.out.println("No notes found by word search");
         }
+        return returnRecords;
     }
-    public Record getNoteByDateRange(int id, Date fDate, Date sDate){
-        ourNDate = notepad[id].getNoteDate();
+    private Record getNoteByDateRange(int id, Date fDate, Date sDate){
+
+        Date ourNDate = records.get(id).getNoteDate();
         if(ourNDate.after(fDate)&ourNDate.before(sDate)){
-            return notepad[id];}
+            return records.get(id);}
         else {return null;}
     }
-    public void recordsByDateRange(){
-        noteFound = false;
+    public List getRecordsByDateRange(){
+
+        List<Record> returnRecords = new ArrayList<>();
+        boolean noteFound = false;
+        Record ourRecord;
+        Date firstDateTime;
+        Date secondDateTime;
+
         Calendar calendar = new GregorianCalendar(2022, 6 , 18,18,42,15);
         firstDateTime = calendar.getTime();
         Calendar calendar1 = new GregorianCalendar(2022, 6 , 18,18,59,15);
         secondDateTime = calendar1.getTime();
-        for (int id = 0; id < notepad.length; id++) {
+        for (int id = 0; id < records.size(); id++) {
             ourRecord = getNoteByDateRange(id,firstDateTime,secondDateTime);
             if(!(ourRecord ==null)){
                 noteFound = true;
-                System.out.println(formatter.format(ourRecord.getNoteDate()) + ",\n" +
-                        ourRecord.getTextRecord() + ",\n" +
-                        ourRecord.getTypeNote());
+                returnRecords.add(ourRecord);
             }
         }
         if(!noteFound) {
-            System.out.println("No notes found");
+            System.out.println("No notes found for date range");
         }
+        return returnRecords;
     }
     private Date getDateFormat(Date curDate){
-        currentDateStr = formatter.format(curDate);
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        Date currentDate1 = new Date();
+        String currentDateStr = formatter.format(curDate);
+
         try{
             currentDate1 = formatter.parse(currentDateStr);}
         catch (ParseException e) {
@@ -117,4 +121,5 @@ public class Notepad {
         }
         return currentDate1;
     }
+
 }

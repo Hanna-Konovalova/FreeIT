@@ -6,7 +6,7 @@ public enum TypeNote {
     MEETING(2),
     TODO(3);
 
-    int indexType;
+    private int indexType;
 
       TypeNote(int indexType) {
         this.indexType = indexType;
